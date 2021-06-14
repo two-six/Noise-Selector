@@ -1,12 +1,22 @@
 #!/bin/bash
+dir=$( cat ~/.config/noise-selector/dir )
+
+mkdir ~/.config/noise-selector
+
 if [ $# -eq 0 ]
 then
+    if [ -z "$dir" ]
+    then
+        echo "Music/" > ~/.config/noise-selector/dir
+        dir=$( cat ~/.config/noise-selector/dir )
+    fi
     echo "stop"
-    ls ~/Music/"[SKRD!!!-129] V.A. - Polska Ja Wersyja W Byciu Sobą Najbardziej Przeszkadza Nam Kodeks Karny"/ --format=single-column | grep "mp3$\|opus$\|ogg"
+    ls "$dir" --format=single-column | grep "mp3$\|opus$\|ogg"
+
 else
     if [ x"$@" = x"stop" ]
     then
         killall ffplay
     fi
-    coproc ( ffplay -nodisp -loop 0 -loglevel quiet ~/Music/\[SKRD\!\!\!-129\]\ V.A.\ -\ Polska\ Ja\ Wersyja\ W\ Byciu\ Sobą\ Najbardziej\ Przeszkadza\ Nam\ Kodeks\ Karny/"$@" > /dev/null 2>&1 )
+    coproc ( ffplay -nodisp -loop 0 -loglevel quiet "$dir""$@" > /dev/null 2>&1 )
 fi
