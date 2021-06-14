@@ -1,12 +1,12 @@
 * Introduction
 This program allows to play music from predefined in the *dir* config file (*~/.config/noise-selector/dir*). By default it's *Music/* directory.
 * Script
-Reading *dir* config file
+Reading *dir* config file.
 #+begin_src bash :tangle noise-selector
 #!/bin/bash
 dir=$( cat ~/.config/noise-selector/dir )
 #+end_src
-If config directory doesn't exist it creates a new one
+If config directory doesn't exist it creates a new one.
 #+begin_src bash :tangle noise-selector
 mkdir ~/.config/noise-selector
 #+end_src
