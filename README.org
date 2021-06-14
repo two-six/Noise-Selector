@@ -1,5 +1,6 @@
 * Noise Selector
 
+#+attr_latex: :width 800px
 [[file:./noise-selector-scrot.png]]
 
 * Introduction
