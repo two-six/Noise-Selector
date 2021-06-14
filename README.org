@@ -1,4 +1,5 @@
 * Introduction
+This program allows to play music from predefined in the config /*dir/* file (/*~/.config/noise-selector/dir/*) directory.
 #+begin_src bash :tangle noise-selector
 #!/bin/bash
 if [ $# -eq 0 ]
