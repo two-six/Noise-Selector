@@ -1,5 +1,3 @@
-* Introduction
-#+begin_src bash :tangle noise-selector
 #!/bin/bash
 if [ $# -eq 0 ]
 then
@@ -12,4 +10,3 @@ else
     fi
     coproc ( ffplay -nodisp -loop 0 -loglevel quiet ~/Music/\[SKRD\!\!\!-129\]\ V.A.\ -\ Polska\ Ja\ Wersyja\ W\ Byciu\ Sobą\ Najbardziej\ Przeszkadza\ Nam\ Kodeks\ Karny/"$@" > /dev/null 2>&1 )
 fi
-#+end_src
