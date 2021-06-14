@@ -11,7 +11,7 @@ then
         dir=$( cat ~/.config/noise-selector/dir )
     fi
     echo "stop"
-    ls "$dir" --format=single-column | grep "mp3$\|opus$\|ogg"
+    ls "$dir" --format=single-column | grep "mp3$\|opus$\|ogg$\|webm$"
 
 else
     if [ x"$@" = x"stop" ]

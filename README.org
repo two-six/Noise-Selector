@@ -20,7 +20,7 @@ then
         dir=$( cat ~/.config/noise-selector/dir )
     fi
     echo "stop"
-    ls "$dir" --format=single-column | grep "mp3$\|opus$\|ogg"
+    ls "$dir" --format=single-column | grep "mp3$\|opus$\|ogg$\|webm$"
 #+end_src
 If there is an argument, program assumes it's either filename or "stop"(stops all instances of ffplay).
 #+begin_src bash :tangle noise-selector
