@@ -8,9 +8,13 @@ This program allows to play ambience sound files from predefined in the *dir* co
 You need Rofi and FFMpeg installed to run this program.
 Put *noise-selector* file in your prefered directory and then run
 #+begin_src bash
-    rofi -show noise-selector -modi "noise-selector:~/path/to/directory/noise-selector"
+rofi -show noise-selector -modi "noise-selector:~/path/to/directory/noise-selector"
 #+end_src
-Remember to edit *~/.config/noise-selector/dir* to add your folder with ambience sound files.
+Remember to edit *~/.config/noise-selector/dir* to add your folder with ambience sound files and to use
+#+begin_src bash
+chmod +x noise_selector
+#+end_src
+so you can run it.
 * Script
 Reading *dir* config file.
 #+begin_src bash :tangle noise-selector
