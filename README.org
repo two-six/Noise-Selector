@@ -1,5 +1,11 @@
 * Introduction
 This program allows to play music from predefined in the *dir* config file (*~/.config/noise-selector/dir*). By default it's *Music/* directory.
+* How To Run
+You need Rofi and FFMpeg installed to run this program.
+Put *noise-selector* file in your prefered directory and then run
+#+begin_src bash
+    rofi -show noise-selector -modi "noise-selector:~/path/to/directory/noise-selector"
+#+end_src
 * Script
 Reading *dir* config file.
 #+begin_src bash :tangle noise-selector
