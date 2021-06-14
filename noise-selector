@@ -16,7 +16,18 @@ then
 else
     if [ x"$@" = x"stop" ]
     then
-        killall ffplay
+        if [ -f ~/.config/noise-selector/pid ]
+        then
+            kill $( cat ~/.config/noise-selector/pid )
+            echo '' > ~/.config/noise-selector/pid
+        fi
     fi
-    coproc ( ffplay -nodisp -loop 0 -loglevel quiet "$dir""$@" > /dev/null 2>&1 )
+    coproc player ( ffplay -nodisp -loop 0 -loglevel quiet "$dir""$@" > /dev/null 2>&1 ) &&
+    echo ${player_PID} > ~/pid
+    if [ -f ~/.config/noise-selector/pid ]
+    then
+        kill $( cat ~/.config/noise-selector/pid )
+    fi
+    cat ~/pid > ~/.config/noise-selector/pid
+    rm ~/pid
 fi

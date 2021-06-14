@@ -22,13 +22,25 @@ then
     echo "stop"
     ls "$dir" --format=single-column | grep "mp3$\|opus$\|ogg$\|webm$"
 #+end_src
-If there is an argument, program assumes it's either filename or "stop"(stops all instances of ffplay).
+If there is an argument, program assumes it's either filename or "stop". It first saves ffplay PID and then stops previous instance.
 #+begin_src bash :tangle noise-selector
 else
     if [ x"$@" = x"stop" ]
     then
-        killall ffplay
+        if [ -f ~/.config/noise-selector/pid ]
+        then
+            kill $( cat ~/.config/noise-selector/pid )
+            echo '' > ~/.config/noise-selector/pid
+        fi
     fi
-    coproc ( ffplay -nodisp -loop 0 -loglevel quiet "$dir""$@" > /dev/null 2>&1 )
+    coproc player ( ffplay -nodisp -loop 0 -loglevel quiet "$dir""$@" > /dev/null 2>&1 ) &&
+    echo ${player_PID} > ~/pid
+    if [ -f ~/.config/noise-selector/pid ]
+    then
+        kill $( cat ~/.config/noise-selector/pid )
+    fi
+    cat ~/pid > ~/.config/noise-selector/pid
+    rm ~/pid
 fi
+
 #+end_src
