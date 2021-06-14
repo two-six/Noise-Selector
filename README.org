@@ -1,3 +1,7 @@
+* Noise Selector
+
+[[file:./noise-selector-scrot.png]]
+
 * Introduction
 This program allows to play ambience sound files from predefined in the *dir* config file (*~/.config/noise-selector/dir*). By default it's *Music/* directory.
 * How To Run
