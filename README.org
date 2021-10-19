@@ -8,7 +8,7 @@ This program allows to play ambient sound files from the predefined in the *dir*
 You need Rofi and FFMpeg installed to run this program.
 Put *noise-selector* file in your prefered directory and then run
 #+begin_src bash
-rofi -show noise-selector -modi "noise-selector:~/path/to/directory/noise-selector"
+rofi -show noise-selector -modi "noise-selector:/absolute/path/to/directory/noise-selector"
 #+end_src
 Remember to edit *~/.config/noise-selector/dir* to add your folder with ambient sound files and to use
 #+begin_src bash
